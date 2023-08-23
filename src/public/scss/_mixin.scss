@@ -1,0 +1,196 @@
+@mixin loginbutton-color{
+    background: #a64bf4;
+    background: -webkit-linear-gradient(to left, #00dbde, #fc00ff, #00dbde, #fc00ff);
+    background: -o-linear-gradient(to left, #00dbde, #fc00ff, #00dbde, #fc00ff);
+    background: -moz-linear-gradient(to left, #00dbde, #fc00ff, #00dbde, #fc00ff);
+    background: linear-gradient(to left, #00dbde, #fc00ff, #00dbde, #fc00ff);
+}
+@mixin scrollbar ($width,$track-color,$thumb-color,$thumb-hover-color){
+    & ::-webkit-scrollbar {
+        width: $width;
+    }
+    & ::-webkit-scrollbar-track {
+        background: $track-color;
+    }
+    & ::-webkit-scrollbar-thumb {
+        background: $thumb-color;
+        border-radius: 5px;
+    }
+    & ::-webkit-scrollbar-thumb:hover {
+        background: $thumb-hover-color;
+    }
+}
+@mixin item-bottom{
+    height: 100px;
+    .item-bottom-color{
+        height: 55px;
+        position: relative;
+        width: 27px;
+        display: inline-block;
+        margin-right: 5px;
+        .color{
+            position: absolute;
+            bottom: 0;
+            a{
+                width: 27px;
+                height: 27px;
+                display: inline-block;
+                border-radius: 50%; 
+                transition: .15s;
+                &:hover{
+                    border: 4px solid white;
+                    outline: 1px solid black;
+                }
+            }
+        }
+        .tooltip-text{
+            position: absolute;
+            bottom: 40%;
+            left: -100%;
+            height: 0;
+            min-width: 90px;
+            transition: .2s ease-in-out;
+            font-size: 15px;
+            overflow: hidden;
+            span{
+                display: block;
+                margin: 0;
+                padding: 3px;
+                background-color: black;
+                color: white;
+                font-size: 14px;
+                border-radius: 5px;
+                box-shadow:  2px 4px 5px grey;
+                text-align: center;
+            }
+            i{
+                position: absolute;
+                left: 40%;  
+                top: 40%;
+            }
+        }
+        &:hover{
+            cursor: pointer;
+        }
+        &:hover .tooltip-text{
+            height: 90%;
+            bottom: 35%;
+        }
+    }
+}
+@mixin welcome(){
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 400px;
+    height: 200px;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    padding: 40px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin title{
+    font-family: $fontAdamGorry;
+    font-size: calc(var(--index) * 1.2);
+	line-height: 1.75;
+	font-weight: 600;
+	letter-spacing: 2px;
+    color: $title-color;
+}
+
+@mixin text{
+    line-height: 1.75;
+    font-size: calc(var(--index) * 0.72);
+    font-family: $fontSegoeUI;
+    font-weight: 400;
+    color: $text-color;
+}
+
+@mixin button{
+    height: 50px;
+    width: 200px;
+    border-radius: 8px;
+    border: none;
+    user-select: none;
+    cursor: pointer;
+    font-family: $fontAdamGorry;
+    letter-spacing: 2px;
+    font-weight: 900;
+    color: white;
+    transition: 0.3s;
+    background-color: black;
+    &:hover{
+        transform: scale(1.05);
+    }
+}
+@mixin typing-text-container{
+    @include text;
+    display: grid;
+    place-items: center;
+    font-size: 25px;
+    position: absolute;
+    right: 7%;
+    top: 70vh;
+    font-family: $fontSourceSerif4;
+    text-transform: capitalize;
+    font-size: 20px;
+    letter-spacing: 0.3px;
+}
+@mixin  typing-text{
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+}
+@keyframes messagesshow {
+    0%{
+        opacity: 0;
+        right: -100px;
+    }
+    100%{
+        opacity: 1;
+        right: 50px;
+    }
+}
+@mixin messages-show{
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 350px;
+    animation: messagesshow .7s;
+    z-index: 2;
+    .messages-show-header{
+        // background: #a64bf4;
+        background-image: url("../image/index/bg-01.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px;
+    }
+    .messages-show-body{
+        height: 50px;
+        background-color: white;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        font-family: $fontSegoeUI;
+        p{
+            font-size: 15px;
+            color: black;
+        }
+    }
+}
+@mixin messages-hide{
+    display: none;
+}
+

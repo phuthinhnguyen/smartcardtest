@@ -1,0 +1,98 @@
+<nav>
+    <div class="nav-wrap">
+        <div class="left">
+            <ul>
+                <li>
+                    <a lang="en" id="home-en">Home</a>
+                    <a lang="vi" id="home-vi">Trang chủ</a>
+                </li>
+
+                <li>
+                    <a lang="en" id="about-en">About</a>
+                    <a lang="vi" id="about-vi">Về SMARTCARD</a>
+                </li>
+
+                <li>
+                    <a lang="en" id="products-en">Products</a>
+                    <a lang="vi" id="products-vi">Sản phẩm</a>
+                </li>
+                <li>
+                    <a lang="en" id="userguides-en">User guides</a>
+                    <a lang="vi" id="userguides-vi">Hướng dẫn</a>
+                </li>
+                <li>
+                    <a lang="en" id="reviews-en">Reviews</a>
+                    <a lang="vi" id="reviews-vi">Đánh giá</a>
+                </li>
+                <li>
+                    <a lang="en" id="contact-en">Contact</a>
+                    <a lang="vi" id="contact-vi">Liên hệ</a>
+                </li>
+            </ul>
+        </div>
+    
+        <div class="right">
+           <a lang="en" href="/signin">Log in</a>
+           <a lang="vi" href="/signin">Đăng nhập</a>
+           <img src="/image/index/vi.svg" alt="" style="width: 25px;height: 25px;margin-left: 20px;" onclick="vi()">
+           <img src="/image/index/us.svg" alt="" onclick="eng()">
+        </div>
+    </div>
+</nav>
+<script>
+    $("#home-en, #home-vi").click(function name(params) {
+        $('html').animate({
+            scrollTop: $(".home").offset().top
+        }, 600);
+    })
+    $("#about-en").click(function name(params) {
+        $('html').animate({
+            scrollTop: $(".about-en").offset().top
+        }, 600);
+    })
+    $("#about-vi").click(function name(params) {
+        $('html').animate({
+            scrollTop: $(".about-vi").offset().top
+        }, 600);
+    })
+    $("#products-en").click(function name(params) {
+        $('html').animate({
+            scrollTop: $(".products-en").offset().top
+        }, 600);
+    })
+    $("#products-vi").click(function name(params) {
+        $('html').animate({
+            scrollTop: $(".products-vi").offset().top
+        }, 600);
+    })
+    $("#userguides-en").click(function name(params) {
+        $('html').animate({
+            scrollTop: $(".userguides-en").offset().top
+        }, 600);
+    })
+    $("#userguides-vi").click(function name(params) {
+        $('html').animate({
+            scrollTop: $(".userguides-vi").offset().top
+        }, 600);
+    })
+    $("#reviews-en").click(function name(params) {
+        $('html').animate({
+            scrollTop: $(".reviews-en").offset().top
+        }, 600);
+    })
+    $("#reviews-vi").click(function name(params) {
+        $('html').animate({
+            scrollTop: $(".reviews-vi").offset().top
+        }, 600);
+    })
+    $("#contact-en").click(function name(params) {
+        $('html').animate({
+            scrollTop: $(".contact-en").offset().top
+        }, 600);
+    })
+    $("#contact-vi").click(function name(params) {
+        $('html').animate({
+            scrollTop: $(".contact-vi").offset().top
+        }, 600);
+    })
+</script>

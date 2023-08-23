@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Sign in</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="/image/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+	<script src="/css/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/font/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/font/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/css/signup.css">
+	<link rel="stylesheet" type="text/css" href="/css/signin.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body>
+	<!-- toast -->
+	<% if (messages!="") { %>
+		<div class="messages-show">
+			<div class="messages-show-header">
+				<div>
+					<img src="/image/favicon.ico" class="rounded mr-2" alt="..."
+						style="width:20px;height: 20px;margin-right: 5px;">
+					<strong class="mr-auto" style="color: black;font-weight: 700;">SMARTCARD</strong>
+				</div>
+				<button type="button" class="btn-close ml-2 mb-1" data-bs-dismiss="toast" onclick="closepopup()"></button>
+			</div>
+			<div class="messages-show-body">
+				<p lang="en"><%= messages[0] %></p>
+				<p lang="vi"><%= messages[1] %></p>
+			</div>
+		</div>
+	
+		<% } else{ %> 	
+		<div class="messages-hide"></div>
+	<% } %>
+	<script>
+		function closepopup(){
+			document.getElementsByClassName("messages-show")[0].classList.add('messages-hide');
+		}
+	</script>
+
+	<!-- content -->
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('/image/index/bg-01.jpg');">
+			<div class="logo">
+				<img src="/image/index/logo.png" alt="" id="logo">
+			</div>
+			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+				<form class="login100-form validate-form" action="/processLogin" method="post">
+					<!-- label -->
+					<span class="login100-form-title p-b-49" lang="en">Login</span>
+					<span class="login100-form-title p-b-49" lang="vi">Đăng nhập</span>
+
+					<!-- username -->
+					<div class="wrap-input100 validate-input m-b-23" data-validate="Username is required" lang="en">
+						<span class="label-input100" lang="en">Username</span>
+						<input class="input100" type="text" name="username" placeholder="Type your username" lang="en">
+						<span class="focus-input100" data-symbol="&#xf206;" lang="en"></span>
+					</div>
+					<div class="wrap-input100 validate-input m-b-23" data-validate="Tên đăng nhập bắt buộc điền"
+						lang="vi">
+						<span class="label-input100" lang="vi">Tên đăng nhập</span>
+						<input class="input100" type="text" name="username" placeholder="Nhập tên đăng nhập" lang="vi">
+						<span class="focus-input100" data-symbol="&#xf206;" lang="vi"></span>
+					</div>
+
+					<!-- password -->
+					<div class="wrap-input100 validate-input" data-validate="Password is required" lang="en">
+						<div class="wrap-input100-password">
+							<span class="label-input100" lang="en">Password</span>
+							<span class="showhidepassword" onclick="showpassword(0)" lang="en">Show password</span>
+						</div>
+						<input class="input100 password" type="password" name="pass" placeholder="Type your password"
+							lang="en">
+						<span class="focus-input100" data-symbol="&#xf190;" lang="en"></span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate="Mật khẩu bắt buộc điền" lang="vi">
+						<div class="wrap-input100-password">
+							<span class="label-input100" lang="vi">Mật khẩu</span>
+							<span class="showhidepassword" onclick="showpassword(1)" lang="vi">Hiện mật khẩu</span>
+						</div>
+						<input class="input100 password" type="password" name="pass" placeholder="Nhập mật khẩu"
+							lang="vi">
+						<span class="focus-input100" data-symbol="&#xf190;" lang="vi"></span>
+					</div>
+
+					<!-- forgot password -->
+					<div class="text-right p-t-8 p-b-31">
+						<a href="/forgotpassword">
+							<i lang="en">Forgot password?</i>
+							<i lang="vi">Quên mật khẩu?</i>
+						</a>
+					</div>
+				
+					<!-- submit -->
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn" type="submit" lang="en">
+								Login
+							</button>
+							<button class="login100-form-btn" type="submit" lang="vi">
+								Đăng nhập
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="/js/jquery-3.6.4.js"></script>
+	<script src="/js/signin.js"></script>
+	<script src="/js/language.js"></script>
+	<script src="/js/index.js"></script>
+</body>
+
+</html>

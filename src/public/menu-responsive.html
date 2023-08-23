@@ -1,0 +1,88 @@
+<div class="nav-responsive">
+    <div class="left">
+        <div class="col-4 menu-responsive" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions">
+            <a class="bar"><i class="fa fa-bars" aria-hidden="true"></i></a>
+        </div>
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+            <div class="offcanvas-header">
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="menu-responsive-wrap">
+                    <ul>
+                        <li>
+                            <a lang="en" id="home-res-en">Home</a>
+                            <a lang="vi" id="home-res-vi">Trang chủ</a>
+                        </li>
+        
+                        <li>
+                            <a lang="en" id="about-res-en">About</a>
+                            <a lang="vi" id="about-res-vi">Về SMARTCARD</a>
+                        </li>
+        
+                        <li>
+                            <a lang="en" id="products-res-en">Products</a>
+                            <a lang="vi" id="products-res-vi">Sản phẩm</a>
+                        </li>
+                        <li>
+                            <a lang="en" id="userguides-res-en">User guides</a>
+                            <a lang="vi" id="userguides-res-vi">Hướng dẫn</a>
+                        </li>
+                        <li>
+                            <a lang="en" id="reviews-res-en">Reviews</a>
+                            <a lang="vi" id="reviews-res-vi">Đánh giá</a>
+                        </li>
+                        <li>
+                            <a lang="en" id="contact-res-en">Contact</a>
+                            <a lang="vi" id="contact-res-vi">Liên hệ</a>
+                        </li>
+                        <li>
+                            <img src="/image/index/vi.svg" alt="" style="width: 35px;height: 35px;margin-right: 20px;" onclick="vi()">
+                            <img src="/image/index/us.svg" alt="" onclick="eng()">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="center">
+        <img src="/image/index/logo.png" alt="">
+    </div>
+    
+    <div class="right">
+        <a href="/signin" lang="en">Log in</a>
+        <a href="/signin" lang="vi">Đăng nhập</a>
+    </div>
+</div>
+<script>
+    $("#home-res-en, #home-res-vi").click(function name(params) {
+        $('html').animate({
+            scrollTop: $(".home").offset().top
+        }, 600);
+    })
+    $("#about-res-en, #about-res-vi").click(function name(params) {
+        $('html').animate({
+            scrollTop: $(".about-res").offset().top-70
+        }, 600);
+    })
+    $("#products-res-en, #products-res-vi").click(function name(params) {
+        $('html').animate({
+            scrollTop: $(".products-res").offset().top-70
+        }, 600);
+    })
+    $("#userguides-res-en, #userguides-res-vi").click(function name(params) {
+        $('html').animate({
+            scrollTop: $(".userguides-res").offset().top-70
+        }, 600);
+    })
+    $("#reviews-res-en, #reviews-res-vi").click(function name(params) {
+        $('html').animate({
+            scrollTop: $(".reviews-res").offset().top-70
+        }, 600);
+    })
+    $("#contact-res-en, #contact-res-vi").click(function name(params) {
+        $('html').animate({
+            scrollTop: $(".contact-res").offset().top-70
+        }, 600);
+    })
+</script>

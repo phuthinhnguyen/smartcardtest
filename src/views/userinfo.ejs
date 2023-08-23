@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>SMARTCARD</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="/image/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="/css\bootstrap-5.0.2-dist\css/bootstrap.min.css">
+	<script src="/css\bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/font/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/font/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/css/userinfo.css">
+	<link rel="stylesheet" href="/css/avatar.css">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+		integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="/js/jquery-3.6.4.js"></script>
+	<script src="/js/userinfo.js"></script>
+	<script src="/js/avatar.js"></script>
+	<script src="/js/language.js"></script>
+</head>
+
+<body style="background-image: url('/image/index/bg-01.jpg');">
+	<div id="body">
+		<!-- nav -->
+		<div class="menu-control">
+			<div class="left">
+
+			</div>
+			<div class="center">
+
+			</div>
+			<div class="right">
+				<div class="nav-icon">
+					<i class="fas fa-user" id="cardid-icon"></i><span class="tooltiptext" lang="en">Card</span>
+					<span class="tooltiptext" lang="vi">Thẻ</span>
+				</div>
+				<div class="nav-icon">
+					<i class="fa fa-envelope" id="contact-icon"></i><span class="tooltiptext" lang="en">Contact</span>
+					<span class="tooltiptext" lang="vi">Liên hệ</span>
+				</div>
+				<div class="nav-icon">
+					<i class="far fa-images" id="change-theme-icon"></i><span class="tooltiptext" lang="en">Theme</span>
+					<span class="tooltiptext" lang="vi">Theme</span>
+				</div>
+				<div class="nav-icon">
+					<i onclick="window.location.href='/logout'" class="fas fa-sign-out-alt"></i><span
+						class="tooltiptext" lang="en">Log out</span>
+					<span class="tooltiptext" lang="vi">Thoát</span>
+				</div>
+			</div>
+		</div>
+		<div id="show-card-id">
+			<div class="showcardid-wrap">
+				<div class="showcardid-item">
+					<h2 lang="en">Card ID</h2>
+					<h2 lang="vi">ID Thẻ</h2>
+					<p>
+						<%= datauser.cardid %>
+					</p>
+				</div>
+				<div class="showcardid-item">
+					<h2 lang="en">Phone</h2>
+					<h2 lang="vi">Điện thoại</h2>
+					<input type="tel" value="<%= datauser.phone %>" size="15" id="showcardid-phone" onchange="changephone()">
+				</div>
+				<div class="showcardid-item">
+					<h2 lang="en">E-mail</h2>
+					<h2 lang="vi">E-mail</h2>
+					<input type="text" value="<%= datauser.email %>" size="40" id="showcardid-email" onchange="changeemail()">
+				</div>
+				<div class="showcardid-item">
+					<h2 lang="en">Change password</h2>
+					<h2 lang="vi">Đổi mật khẩu</h2>
+					<input type="text" value="" size="40" id="showcardid-password" onchange="changepassword()">
+				</div>
+			</div>
+		</div>
+		<div id="show-contact">
+			<h2 lang="en">Contact information</h2>
+			<h2 lang="vi">Thông tin liên hệ</h2>
+			<p lang="en">We love to hear from you on our customer service, merchandise, website or any topics you want
+				to share with us. Your comments and suggestions will be appreciated. Please refer to the information below:</p>
+			<p lang="vi"><strong>SMARTCARD</strong> rất hân hạnh nhận được góp ý từ các bạn. Vui lòng theo dõi thông tin liên hệ bên
+				dưới:</p>
+			<p lang="en">smartcardhub.com</p>
+			<p lang="vi">smartcardhub.com</p>
+			<p lang="en">Mobile/Zalo: 0902 22 59 74</p>
+			<p lang="vi">Di động/Zalo: 0902 22 59 74</p>
+			<p lang="en">mail.smartcardhub.com</p>
+			<p lang="vi">mail.smartcardhub.com</p>
+			<p lang="en">Everyday 8:00-19:00</p>
+			<p lang="vi">Mỗi ngày từ 8:00-19:00</p>
+		</div>
+		<div id="show-change-theme">
+			<h2 lang="en">Change theme color</h2>
+			<h2 lang="vi">Đổi màu nền</h2>
+			<div class="item-bottom">
+				<div class="item-bottom-color">
+					<div class="color">
+						<a onclick="changecolortheme(this)"
+							style="background: linear-gradient(to left, #00dbde, #fc00ff, #00dbde, #fc00ff);"></a>
+					</div>
+					<div class="tooltip-text">
+						<span lnag="en">Default</span><i class="fa-solid fa-caret-down"></i>
+					</div>
+				</div>
+				<div class="item-bottom-color">
+					<div class="color">
+						<a onclick="changecolortheme(this)" style="background-color: #90A87B"></a>
+					</div>
+					<div class="tooltip-text">
+						<span>Green</span><i class="fa-solid fa-caret-down"></i>
+					</div>
+				</div>
+				<div class="item-bottom-color">
+					<div class="color">
+						<a onclick="changecolortheme(this)" style="background-color:#E4E0D4"></a>
+					</div>
+					<div class="tooltip-text">
+						<span>Beige</span><i class="fa-solid fa-caret-down"></i>
+					</div>
+				</div>
+				<div class="item-bottom-color">
+					<div class="color">
+						<a onclick="changecolortheme(this)" style="background-color:#8DB5D1"></a>
+					</div>
+					<div class="tooltip-text">
+						<span>Light Blue</span><i class="fa-solid fa-caret-down"></i>
+					</div>
+				</div>
+				<div class="item-bottom-color">
+					<div class="color">
+						<a onclick="changecolortheme(this)" style="background-color:#143F66"></a>
+					</div>
+					<div class="tooltip-text">
+						<span>Dark Blue</span><i class="fa-solid fa-caret-down"></i>
+					</div>
+				</div>
+				<div class="item-bottom-color">
+					<div class="color">
+						<a onclick="changecolortheme(this)" style="background-color:#C6AFC4"></a>
+					</div>
+					<div class="tooltip-text">
+						<span>Light Purple</span><i class="fa-solid fa-caret-down"></i>
+					</div>
+				</div>
+				<div class="item-bottom-color">
+					<div class="color">
+						<a onclick="changecolortheme(this)" style="background-color:#836A53"></a>
+					</div>
+					<div class="tooltip-text">
+						<span>Brown</span><i class="fa-solid fa-caret-down"></i>
+					</div>
+				</div>
+				<div class="item-bottom-color">
+					<div class="color">
+						<a onclick="changecolortheme(this)" style="background-color:black"></a>
+					</div>
+					<div class="tooltip-text">
+						<span>Black</span><i class="fa-solid fa-caret-down"></i>
+					</div>
+				</div>
+				<div class="item-bottom-color">
+					<div class="color">
+						<a onclick="changecolortheme(this)" style="background-color:grey"></a>
+					</div>
+					<div class="tooltip-text">
+						<span>Grey</span><i class="fa-solid fa-caret-down"></i>
+					</div>
+				</div>
+				<div class="item-bottom-color">
+					<div class="color">
+						<a onclick="changecolortheme(this)" style="background-color:#EADED9"></a>
+					</div>
+					<div class="tooltip-text">
+						<span>Light Pink</span><i class="fa-solid fa-caret-down"></i>
+					</div>
+				</div>
+				<div class="item-bottom-color">
+					<div class="color">
+						<a onclick="changecolortheme(this)" style="background-color:rgb(31, 53, 252)"></a>
+					</div>
+					<div class="tooltip-text">
+						<span>Blue</span><i class="fa-solid fa-caret-down"></i>
+					</div>
+				</div>
+				<div class="item-bottom-color">
+					<div class="color">
+						<a onclick="changecolortheme(this)" style="background-color:darkgoldenrod"></a>
+					</div>
+					<div class="tooltip-text">
+						<span>Dark Yellow</span><i class="fa-solid fa-caret-down"></i>
+					</div>
+				</div>
+				<div class="item-bottom-color">
+					<div class="color">
+						<a onclick="changecolortheme(this)" style="background-color:rgb(143, 103, 43)"></a>
+					</div>
+					<div class="tooltip-text">
+						<span>Dark Brown</span><i class="fa-solid fa-caret-down"></i>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	
+
+		<!-- content -->
+		<div class="content">
+			<div class="limiter" id="limiter">
+				<div class="container-login100">
+					<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+						<form class="login100-form validate-form" method="post"
+							action="/<%= datauser.cardid %>/userinfo" enctype="multipart/form-data">
+							<div class="parent">
+								<div>
+									<img alt="..." src="<%= datauser.avatar %>" id="avatarshow" />
+								</div>
+								<div class="file-upload">
+									<input type="file" id="profile_pic" name="profile_pic"
+										onchange="changeavatar()"></input>
+								</div>
+							</div>
+							<script>
+								const toBase64 = file => new Promise((resolve, reject) => {
+									const reader = new FileReader();
+									reader.readAsDataURL(file);
+									reader.onload = () => resolve(reader.result);
+									reader.onerror = reject;
+								});
+								async function changeavatar() {
+									let file = document.getElementById("profile_pic").files[0]
+									let avatarshow = document.getElementById("avatarshow")
+									const base64 = await toBase64(file);
+									avatarshow.src = base64;
+								}
+							</script>
+							<input type="hidden" value="<%= datauser.phone %>" size="15" name="phone" id="phone">
+							<input type="hidden" value="<%= datauser.email %>" size="40" name="email" id="email">
+							<input type="hidden" value="" size="40" name="password" id="password">
+							<input name="colortheme" type="hidden" id="colortheme" value="<%= datauser.colortheme %>"></input>
+							<input name="train" type="hidden" value="<%= datauser.train %>" id="train"></input>
+							<div class="name">
+								<input id="name" readonly="true" value="<%= datauser.name2 %>" name="name2"
+									maxlength="30" onfocusout="inputnamefocusout(this)" onkeyup="inputKeyUp(event,this)"
+									onkeypress="return event.keyCode != 13;" />
+								<i class="fas fa-pencil" onclick="editname(this)"></i>
+							</div>
+							<div class="bio" style="margin-top: 5px">
+								<input id="bio" readonly="true" value="<%= datauser.bio %>" name="bio"
+									maxlength="40" onfocusout="inputbiofocusout(this)" onkeyup="inputKeyUp(event,this)"
+									onkeypress="return event.keyCode != 13;" style="font-size: 18px;font-weight: 400;"/>
+								<i class="fas fa-pencil" onclick="editbio(this)"></i>
+							</div>
+							<div class="container-login100-form-btn" id="addlink-btn">
+								<div class="wrap-login100-form-btn">
+									<div class="login100-form-bgbtn"></div>
+									<div class="login100-form-btn" lang="en">
+										<i class="far fa-plus"></i>Add link
+									</div>
+									<div class="login100-form-btn" lang="vi">
+										<i class="far fa-plus"></i>Tạo link
+									</div>
+								</div>
+							</div>
+							<div class="link-option" tabindex="-1">
+								<a onclick="addlinkfunction(this)">Facebook</a>
+								<a onclick="addlinkfunction(this)">Youtube</a>
+								<a onclick="addlinkfunction(this)">Instagram</a>
+								<a onclick="addlinkfunction(this)">TikTok</a>
+								<a onclick="addlinkfunction(this)">Zalo</a>
+								<a onclick="addlinkfunction(this)">Telegram</a>
+								<a onclick="addlinkfunction(this)">Skype</a>
+								<a onclick="addlinkfunction(this)">Twitter</a>
+								<a onclick="addlinkfunction(this)">Pinterest</a>
+								<a onclick="addlinkfunction(this)">Momo</a>
+								<a onclick="addlinkfunction(this)">Gmail</a>
+								<a onclick="addlinkfunction(this)">LinkedIn</a>
+								<a onclick="addlinkfunction(this)">WhatsApp</a>
+								<a onclick="addlinkfunction(this)">Yelp</a>
+							</div>
+							<div id="link-area">
+								<% if (datauser.link!="" ) { %>
+									<% for(let i=0; i < datauser.link.linktype.length; i++) { %>
+										<div id="container-showlink">
+											<input name="linktype" type="hidden"
+												value="<%= datauser.link.linktype[i] %>"></input>
+											<div class="link">
+												<div class="linklogo">
+													<img
+														src="/image/userinfo/<%= datauser.link.linktype[i].toLowerCase() %>.png">
+												</div>
+												<div class="linkinput">
+													<div class="linknametitle-wrap">
+														<h5 id="linknametitle">
+															<%= datauser.link.linktype[i] %>&nbsp;-&nbsp;
+														</h5>
+														<input id="title" name="inputtitle" class="inputtitle"
+															readonly="true" value="<%= datauser.link.inputtitle[i] %>"
+															maxlength="40" size="18"
+															onfocusout="inputtitlefocusout(this)"
+															onkeyup="inputKeyUp(event,this)"
+															onkeypress="return event.keyCode != 13;"></input>
+													</div>
+													<i class="fas fa-pencil" onclick="editinputtitle(this)"></i>
+													<input id="link" name="inputlink" readonly="true"
+														value="<%= datauser.link.inputlink[i] %>" maxlength="100"
+														size="39" onfocusout="inputlinkfocusout(this)"
+														onkeyup="inputKeyUp(event,this)"
+														onkeypress="return event.keyCode != 13;"></input>
+													<i class="fas fa-pencil" onclick="editinputlink(this)"></i>
+												</div>
+												<div class="linktrash">
+													<i class="fas fa-trash" onclick="clicktrash(this)"></i>
+												</div>
+												<div class="yesno">
+													<i class="fas fa-check" id="yes" onclick="removelink(this)"></i>
+													<i class="fas fa-times" id="no" onclick="clickno(this)"></i>
+												</div>
+											</div>
+										</div>
+										<% } %>
+											<% } %>
+							</div>
+
+							<!-- <div id="container-showlink">
+								<input name="linktype" value="${a.innerText}"></input>
+								<div class="link">
+									<div class="linklogo">
+										<img src="/image/userinfo/${a.innerText.toLowerCase()}.png">
+									</div>
+									<div class="linkinput">
+										<div class="linknametitle-wrap">
+											<h5 id="linknametitle">${a.innerText}&nbsp;-&nbsp;</h5>
+											<input id="title"
+												name="inputtitle" class="inputtitle" readonly="true"
+												value="${(name.value==" @yourname") ? "@yourtitle" : name.value}"
+												maxlength="40" size="18" onfocusout="inputtitlefocusout(this)"
+												onkeyup="inputKeyUp(event,this)"></input>
+										</div>
+										<i class="fas fa-pencil" onclick="editinputtitle(this)"></i>
+										<input
+											id="link" name="inputlink" readonly="true"
+											value="http://${a.innerText.toLowerCase()}.com/@yourlink" maxlength="100"
+											size="39" onfocusout="inputlinkfocusout(this)"
+											onkeyup="inputKeyUp(event,this)"></input>
+											<i class="fas fa-pencil" onclick="editinputlink(this)"></i>
+									</div>
+									<div class="linktrash">
+										<i class="fas fa-trash" onclick="clicktrash(this)"></i>
+									</div>
+									<div class="yesno">
+										<i class="fas fa-check" id="yes" onclick="removelink(this)"></i>
+										<i class="fas fa-times" id="no" onclick="clickno(this)"></i>
+									</div>
+								</div>
+							</div> -->
+							<div class="container-login100-form-btn">
+								<div class="wrap-login100-form-btn">
+									<div class="login100-form-bgbtn"></div>
+									<button class="login100-form-btn" type="submit" lang="en">
+										Save
+									</button>
+									<button class="login100-form-btn" type="submit" lang="vi">
+										Lưu
+									</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+
+			</div>
+			<!-- <script>
+				new window.AvatarUpload({
+					el: document.querySelector('.avatar-upload'),
+					uploadUrl: '',
+					uploadData: {
+						foo: 'bar',
+						bar: 'baz'
+					},
+					pretendUpload: true
+				})
+			</script> -->
+
+			<div class="show" id="show">
+				<div class="wrap" id="wrap" style="background-color: <%= datauser.colortheme %>;">
+					<div class="avatar">
+						<img id="show-avatar" src="<%= datauser.avatar %>" />
+					</div>
+					<div class="showname">
+						<p id="name-show">
+							<%= datauser.name2 %>
+						</p>
+					</div>
+					<p class="showbio" id="bio-show"><%= datauser.bio %></p>
+					<div class="action">
+						<button onclick="call()">
+							<i class="fa fa-phone"></i>
+						</button>
+						<button onclick="email()"><i class="fa fa-envelope"></i></button>
+					</div>
+					<script>
+						$(".action")
+							.children("button")
+							.css({ color: document.body.style.color });
+						function call() {
+							const phoneNumber = "";
+							window.location.href = `tel:${phoneNumber}`;
+						}
+						function email() {
+							const email = "";
+							window.location.href = `mailto:${email}`;
+						}
+					</script>
+					<div id="link-container">
+						<% if (datauser.link!="" ) { %>
+							<% for(let i=0; i < datauser.link.linktype.length; i++) { %>
+								<a class="link" href='<%= datauser.link.inputlink[i] %>' target="_blank">
+									<img src="/image/userinfo/<%= datauser.link.linktype[i].toLowerCase() %>.png"
+										alt="" />
+									<p>
+										<%= datauser.link.inputtitle[i] %>
+									</p>
+								</a>
+								<% } %>
+									<% } %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- guides -->
+	<div id="guides">
+		<div id="welcome">
+			<p lang="en">Hi <%= datauser.name1 %>,</p>
+			<p lang="vi">Xin chào <%= datauser.name1 %>,</p>
+			<p lang="en">Welcome to SMARTCARD</p>
+			<p lang="vi">Tôi là SMARTCARD</p>
+			<p lang="en">Let's take a tour to see some guides</p>
+			<p lang="vi">Mời bạn xem một vài hướng dẫn trước khi bắt đầu</p>
+			<div class="item">
+				<div onclick="skip()" lang="en">Skip</div>
+				<div onclick="skip()" lang="vi">Bỏ qua</div>
+				<div onclick="guidesgo(0)" lang="en">Go</div>
+				<div onclick="guidesgo(1)" lang="vi">Đi</div>
+			</div>
+		</div>
+		<div id="uploadavatar">
+			<i class="far fa-hand-point-left"></i>
+			<p lang="en">Upload your avatar here</p>
+			<p lang="vi">Tải ảnh đại diện ở đây</p>
+		</div>
+		<div id="uploadavatar-responsive">
+			<p lang="en">Upload your avatar here</p>
+			<p lang="vi">Tải ảnh đại diện ở đây</p>
+			<i class="far fa-hand-point-right"></i>
+		</div>
+		<div id="changename">
+			<i class="far fa-hand-point-left"></i>
+			<p lang="en">Click here to edit your name</p>
+			<p lang="vi">Thay đổi tên ở đây</p>
+		</div>
+		<div id="changename-responsive">
+			<p lang="en">Click here to edit your name</p>
+			<p lang="vi">Thay đổi tên ở đây</p>
+			<i class="far fa-hand-point-right"></i>
+		</div>
+		<div onclick="nextoaddlink(0)" id="nexttoaddlink" class="nexttoaddlink" lang="en">Next&nbsp;&nbsp;<i class="fas fa-chevron-circle-right"></i></div>
+		<div onclick="nextoaddlink(1)" id="nexttoaddlink" class="nexttoaddlink" lang="vi">Tiếp&nbsp;&nbsp;<i class="fas fa-chevron-circle-right"></i></div>
+		<div id="addlink">
+			<i class="far fa-hand-point-left"></i>
+			<p lang="en">Click here to add your link</p>
+			<p lang="vi">Tạo link ở đây</p>
+		</div>
+		<div id="addlink-responsive">
+			<p lang="en">Click here to add your link</p>
+			<p lang="vi">Tạo thông tin link ở đây</p>
+			<i class="far fa-hand-point-down"></i>
+		</div>
+		<div onclick="nexttolinkcontainer(0)" id="nexttolinkcontainer" class="nexttolinkcontainer" lang="en">Next&nbsp;&nbsp;<i class="fas fa-chevron-circle-right"></i></div>
+		<div onclick="nexttolinkcontainer(1)" id="nexttolinkcontainer" class="nexttolinkcontainer" lang="vi">Tiếp&nbsp;&nbsp;<i class="fas fa-chevron-circle-right"></i></div>
+		<div id="edittitle">
+			<i class="far fa-hand-point-left"></i>
+			<p lang="en">Click here to edit your title</p>
+			<p lang="vi">Tạo tiêu đề ở đây</p>
+		</div>
+		<div id="edittitle-responsive">
+			<p lang="en">Click here to edit your title</p>
+			<p lang="vi">Tạo tiêu đề ở đây</p>
+			<i class="far fa-hand-point-right"></i>
+		</div>
+		<div id="editlink-responsive">
+			<p lang="en">Click here to edit your link</p>
+			<p lang="vi">Tạo liên kết ở đây</p>
+			<i class="far fa-hand-point-right"></i>
+		</div>
+		<div id="editlink">
+			<i class="far fa-hand-point-left"></i>
+			<p lang="en">Click here to edit your link</p>
+			<p lang="vi">Tạo liên kết ở đây</p>
+		</div>
+		<div id="preview">
+			<p lang="en">Preview your info shown on phone</p>
+			<p lang="vi">Xem trước hiển thị trên điện thoại</p>
+			<i class="far fa-hand-point-down"></i>
+		</div>
+		<div onclick="done()" id="done" lang="en" class="done">Done&nbsp;&nbsp;<i class="fas fa-chevron-circle-right"></i></div>
+		<div onclick="done()" id="done" lang="vi" class="done">Kết thúc&nbsp;&nbsp;<i class="fas fa-chevron-circle-right"></i></div>
+	</div>
+
+	<div class="logo">
+		<img src="/image/index/logo.png" alt="" id="logo">
+	</div>
+
+</body>
+<!-- toast -->
+<div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center toast-container-res"
+	style="position: fixed;top: 50%;right: 50%;transform: translate(50%,-50%);visibility: hidden;">
+	<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false"
+		data-bs-delay="1000">
+		<div class="toast-header d-flex justify-content-between" style="background-image: url('/image/index/bg-01.jpg');background-position: center;background-repeat: no-repeat;background-size: cover;">
+			<div>
+				<img src="/image/favicon.ico" class="rounded mr-2" alt="..."
+					style="width:20px;height: 20px;margin-right: 5px;">
+				<strong class="mr-auto" style="color: black;">SMARTCARD</strong>
+			</div>
+			<button type="button" class="btn-close ml-2 mb-1" data-bs-dismiss="toast" onclick="closetoast()"></button>
+		</div>
+		<div lang="en" class="toast-body" style="font-size: 16px;">This link already exists</div>
+		<div lang="vi" class="toast-body" style="font-size: 16px;">Link này đã được tạo</div>
+	</div>
+</div>
+<script>
+	function closetoast() {
+		document.getElementById("limiter").style.opacity = "1";
+	}
+</script>
+
+</html>
