@@ -2,6 +2,7 @@
 import pool from "../configs/connectDB.js";
 import multer from "multer";
 // import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import session from "express-session";
 import flash from "connect-flash";
 import nodemailer from "nodemailer";
@@ -96,6 +97,7 @@ export const processSignUp = async (req, res) => {
   let namefilter = name.filter((item) => item != "")[0];
 
   const hash = bcrypt.hashSync(passwordfilter, 10);
+  // const hash = passwordfilter
   await pool.execute(
     "update smartcard set username = ?, password = ?, name1 = ? where cardid = ?",
     [usernamefilter, hash, namefilter, cardid]
@@ -133,6 +135,7 @@ export const handleUploadFile = async (req, res) => {
   }
   if (password != "") {
     const hash = bcrypt.hashSync(password, 10);
+    // const hash = password
     await pool.execute("update smartcard set password = ? where cardid = ?", [
       hash,
       cardid,
@@ -241,6 +244,7 @@ export const processLogin = async (req, res) => {
     if (typeof user[0] != "undefined") {
       let cardid = user[0]["cardid"];
       if (bcrypt.compareSync(password, user[0]["password"])) {
+        // if ( password == user[0]["password"]) {
         req.session.regenerate(function (err) {
           if (err) next(err);
           // store user information in session, typically a user id
@@ -283,6 +287,7 @@ export const processForgotPassword = async (req, res) => {
     if (email == emailinput) {
       const passwordresult = createPassword(8, 123456789, "!@#$%&*");
       const hash = bcrypt.hashSync(passwordresult, 10);
+      // const hash = passwordresult
       var mailOptions = {
         from: "phuthinhnguyen1101@gmail.com",
         to: emailinput,
